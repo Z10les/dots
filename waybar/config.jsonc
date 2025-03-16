@@ -1,0 +1,171 @@
+{
+    "layer": "top",
+    "spacing": 0,
+    "height": 0,
+
+    "margin-top": 0,
+    "margin-right": 8,
+    "margin-bottom": 0,
+    "margin-left": 8,
+
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+
+    "modules-center": [
+        "clock"
+        
+    ],
+
+    "modules-right": [
+        "battery",
+        "network",
+        "backlight",
+        "tray",
+        "pulseaudio"
+    ],
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+	    "format": "{icon}",
+    	"format-icons": {
+    	"1": "一",
+        "2": "二",
+        "3": "三",
+        "4": "四",
+        "5": "五",
+        "6": "六",
+        "7": "七",
+        "8": "八",
+        "9": "九",
+        "10": "十"
+	}
+     
+},
+
+"hyprland/window": {
+        "format": "   {}",
+        "rotate": 0,
+        "separate-outputs": true,
+        "rewrite": {
+            "~(.*)": "$1  ",
+            "(.*) — Mozilla Firefox": "$1 󰈹 ",
+            "(.*)Mozilla Firefox": "Firefox 󰈹 ",
+            "(.*) - Visual Studio Code": "$1 󰨞 ",
+            "(.*)Visual Studio Code": "Code 󰨞 ",
+            "(.*) - Code - OSS": "$1 󰨞 ",
+            "(.*)Code - OSS": "Code 󰨞 ",
+            "(.*) — Dolphin": "$1 󰉋 ",
+            "(.*)Spotify": "Spotify 󰓇 ",
+            "(.*)Steam": "Steam 󰓓 ",
+            "(.*) - Discord": "$1   ",
+            "(.*)Netflix": "Netflix 󰝆 ",
+            "(.*) — Google chrome": "$1  ",
+            "(.*)Google chrome": "Google chrome  ",
+            "(.*) — Github": "$1   ",
+            "(.*)Github": "Github  ",
+            "(.*)Spotify Free": "Spotify 󰓇 ",
+            "(.*)Spotify Premiun": "Spotify 󰓇 "
+        },
+        "max-length": 50
+    },
+    "tray": {
+        "spacing": 10,
+        "tooltip": false
+    },
+
+    "clock": {
+        "format": "{:%I:%M %p}",
+        "rotate": 0,
+        "format-alt": "{:%R 󰃭 %d·%m·%y}",
+        "tooltip": false
+    },
+    "backlight": {
+            "device": "intel_backlight",
+            "rotate": 0,
+            "format": "{icon} {percent}%",
+            "format-icons": ["", "", "", "", "", "", "", "", ""],
+            "tooltip-format": "{icon} {percent}% ",
+            "on-scroll-up": "brightnessctl s 5%+",
+            "on-scroll-down": "brightnessctl s 5%-",
+            "min-length": 6
+        },
+
+    "cpu": {
+        "format": "cpu {usage}%",
+        "interval": 2,
+
+        "states": {
+            "critical": 90
+        }
+    },
+
+    "memory": {
+        "format": "mem {percentage}%",
+        "interval": 2,
+
+        "states": {
+            "critical": 80
+        }
+    },
+
+    "battery": {
+            "states": {
+                "good": 80,
+                "warning": 30,
+                "critical": 15
+            },
+            "format": "{icon} {capacity}%",
+            "rotate": 0,
+            "format-charging": " {capacity}%",
+            "format-plugged": " {capacity}%",
+            "format-alt": "{time} {icon}",
+            "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+        },
+
+    "network": {
+            "tooltip": true,
+            "format-wifi": "",
+            "rotate": 0,
+            "format-ethernet": "󰈀 ",
+            "tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>",
+            "format-linked": "󰈀 {ifname} (No IP)",
+            "format-disconnected": "󰖪 ",
+            "tooltip-format-disconnected": "Disconnected",
+            "format-alt": "<span foreground='#99ffdd'> {bandwidthDownBytes}</span> <span foreground='#ffcc66'> {bandwidthUpBytes}</span>",
+            "interval": 2
+        },
+
+
+    "pulseaudio": {
+        "format": "{icon}  {volume}",
+        "rotate": 0,
+        "format-muted": "󰝟",
+        "on-click": "pavucontrol -t 3",
+        "on-click-right": "volumecontrol.sh -s ''",
+        "on-click-middle": "volumecontrol.sh -o m",
+        "on-scroll-up": "pactl -- set-sink-volume 0 +10%",
+        "on-scroll-down": "pactl -- set-sink-volume 0 -10%",
+        "tooltip-format": "{icon} {desc} // {volume}%",
+        "scroll-step": 5,
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        }
+    },
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "rotate": 0,
+        "format-source": "",
+        "format-source-muted": "",
+        "tooltip-format": "{format_source} {source_desc} // {source_volume}%",
+        "scroll-step": 5
+    }
+}
