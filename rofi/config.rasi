@@ -1,0 +1,8 @@
+
+//@theme "/home/zioles/.local/share/rofi/themes/simple-tokyonight.rasi"
+
+configuration {
+	modes: "window,run,drun,ssh,emoji";
+}
+
+@theme "/home/daemon/.local/share/rofi/themes/simple-tokyonight.rasi"
