@@ -1,4 +1,4 @@
-# ArchLinux DOtfiles of "daemon"
+# Humble ArchLinux Dotfiles
 
 Hello, welcome to my humble dotfiles. Still have a long way to set it up
 
